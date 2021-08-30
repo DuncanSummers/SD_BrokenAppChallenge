@@ -2,16 +2,18 @@
 using System;
 using System.Linq;
 
+
 namespace Pokemon_Console
 {
-    private class ProgramUI
+    public class ProgramUI
     {
-        private PokemonRepository _Repo = new PokemonRepository();
+        private readonly PokemonRepository _repo = new PokemonRepository();
         public void Run()
         {
+            RunMenu();
             SeedPokemonTeam();
         }
-        public void runmenu()
+        private void RunMenu()
         {
             bool continueToRunMenu = false;
 
@@ -41,8 +43,8 @@ namespace Pokemon_Console
                     case 4:
                         break;
                     case 5:
-                        continueToRun = false;
-
+                        continueToRunMenu = false;
+                        break;
                     default:
                         Console.WriteLine("Please enter a valid response.");
                         Console.ReadKey();
